@@ -1,0 +1,33 @@
+
+{% block content %}
+
+<h1>titre de cette partie de  site </h1>
+<form action="calc" method="POST">
+    {% csrf_token %}
+
+    Enter montant: <input type="text" name="mo" required><br><br>
+    Enter la durree: <input type="text" name="du" required><br><br>
+    <input type="submit">
+</form>
+
+<table>
+    <tr>
+        <th>num</th>
+        <th>montant </th>
+        <th>duree</th>
+      
+    </tr>
+    {% for  item in oldQuery %}
+        <tr>
+            <td> {{ forloop.counter }}</td> 
+            <td>{{ item.somme }}</td>
+            <td>{{ item.duree }}</td>
+         
+            
+        </tr>
+    {% endfor %}
+</table>
+
+
+
+{% endblock %}
